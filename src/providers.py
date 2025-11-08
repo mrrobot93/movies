@@ -123,7 +123,10 @@ class BoxOfficeMetricsProvider:
                         title = row['film_name']
                         year = int(row['year_of_release'])
                         key = (title, year)
-                
+
+                        if key not in unified_data:
+                            unified_data[key] = {'movie_title': title,'release_year': year}
+
                         unified_data[key]['international_box_office_gross'] = float(row['box_office_gross_usd'])
                     
                     except (ValueError, KeyError, TypeError) as e:
@@ -136,6 +139,9 @@ class BoxOfficeMetricsProvider:
                         title = row['film_name']
                         year = int(row['year_of_release'])
                         key = (title, year)
+
+                        if key not in unified_data:
+                            unified_data[key] = {'movie_title': title,'release_year': year}
                         
                         unified_data[key]['production_budget_usd'] = float(row['production_budget_usd'])
                         unified_data[key]['marketing_spend_usd'] = float(row['marketing_spend_usd'])
