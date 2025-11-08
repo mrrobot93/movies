@@ -21,3 +21,12 @@ def test_critic_agg_data_types(tmp_path):
     result = provider.process()
 
     assert len(result) == 2
+
+    inception_data = result[0]
+    assert inception_data['movie_title'] == "Inception"
+    assert isinstance(inception_data['release_year'], int)
+    assert inception_data['release_year'] == 2010
+
+    parasite_data = result[1]
+    assert isinstance(parasite_data['top_critic_score'], float)
+    assert parasite_data['top_critic_score'] == 9.5
