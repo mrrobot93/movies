@@ -1,49 +1,49 @@
 # Movie Score Data Pipeline
 
-Este proyecto implementa un pipeline ETL (Extract, Transform, Load) para procesar y unificar datos de películas de tres proveedores diferentes
+This project implements an ETL (Extract, Transform, Load) pipeline to process and unify movie data from three different providers.
 
-## Objetivo
+## Objective
 
-El objetivo es ingerir datos de archivos CSV y JSON, estandarizarlos, unirlos y producir un DataFrame de Pandas unificado listo para el análisis del equipo de Data Science.
+The goal is to ingest data from CSV and JSON files, standardize it, merge it, and produce a unified Pandas DataFrame ready for analysis by the Data Science team.
 
-## Estructura
+## Structure
 
-* `/src/providers.py`: Contiene una clase dedicada para cada proveedor (`CriticAggProvider`, `AudiencePulseProvider`, `BoxOfficeMetricsProvider`). Cada clase maneja la lógica de Extracción y Transformación para su fuente específica.
-* `/src/orchestrator.py`: Contiene la clase `PipelineOrchestrator`, que dirige a los proveedores y maneja la lógica de **fusión (merge)** final.
-* `/src/main.py`: Es el punto de entrada que inicializa y ejecuta el pipeline, y demuestra el resultado final en un DataFrame de Pandas.
-* `/entrypoint.py`: Script raíz para lanzar la aplicación.
+* `/src/providers.py`: Contains a dedicated class for each provider (CriticAggProvider, AudiencePulseProvider, BoxOfficeMetricsProvider). Each class handles the Extraction and Transformation logic for its specific source.
+* `/src/orchestrator.py`: Contains the PipelineOrchestrator class, which directs the providers and handles the final merge logic.
+* `/src/main.py`: This is the entry point that initializes and runs the pipeline, demonstrating the final result in a Pandas DataFrame.
+* `/entrypoint.py`: The root script to launch the application.
 
-## Cómo Ejecutar el Proyecto
+## How to Run the Project
 
-1.  **Clonar el repositorio:**
+1.  **Clone the repository:**
     ```bash
     git clone [TU_URL_DE_GIT]
     cd MOVIES
     ```
 
-2.  **Crear un entorno virtual (Recomendado):**
+2.  **Create a virtual environment:**
     ```bash
     python -m venv venv
     source venv/bin/activate
     ```
 
-3.  **Instalar dependencias:**
+3.  **Install dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Ejecutar el pipeline:**
+4.  **Run:**
     El punto de entrada principal es `entrypoint.py`:
     ```bash
     python entrypoint.py
     ```
 
-5.  **Ejecutar las pruebas:**
+5.  **Test:**
     ```bash
     pytest
     ```
 
-## Dependencias
+## Dependencies
 
 * pandas
 * pytest
